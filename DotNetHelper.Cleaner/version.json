@@ -1,0 +1,9 @@
+{
+  "version": "1.0", // Major.Minor 기준선
+  "assemblyVersion": "1.0",
+  "tagPrefix": "DotNetHelper.Cleaner-v", // ↙ 자동 태그 이름 접두사
+  "publicReleaseRefSpec": [
+    "^refs/heads/main$",
+    "^refs/tags/DotNetHelper\\.Cleaner-v\\d+\\.\\d+\\.\\d+$"
+  ]
+}
