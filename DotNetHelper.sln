@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.Cleaner", "DotNetHelper.Cleaner\DotNetHelper.Cleaner.csproj", "{DFE481AE-AEB9-4F07-9A58-D9911CB5CFD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.Scheduler", "DotNetHelper.Scheduler\DotNetHelper.Scheduler.csproj", "{1E760373-7F79-4DB2-917D-A5A9C7B1C942}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DFE481AE-AEB9-4F07-9A58-D9911CB5CFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFE481AE-AEB9-4F07-9A58-D9911CB5CFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFE481AE-AEB9-4F07-9A58-D9911CB5CFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
