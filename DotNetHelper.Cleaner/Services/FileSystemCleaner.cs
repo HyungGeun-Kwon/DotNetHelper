@@ -10,8 +10,8 @@ namespace DotNetHelper.Cleaner.Services
         private readonly IFileDeletePolicy _fileDeletePolicy;
         private readonly IFolderDeletePolicy _folderDeletePolicy;
 
-        public event EventHandler<Exception> TryDeleteFileException;
-        public event EventHandler<Exception> TryDeleteFolderException;
+        public event EventHandler<Exception>? TryDeleteFileException;
+        public event EventHandler<Exception>? TryDeleteFolderException;
 
         public FileSystemCleaner(IFileDeletePolicy fileDeletePolicy, IFolderDeletePolicy folderDeletePolicy)
         {
