@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.Cleaner", "Dot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.Scheduler", "DotNetHelper.Scheduler\DotNetHelper.Scheduler.csproj", "{1E760373-7F79-4DB2-917D-A5A9C7B1C942}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.Logger", "DotNetHelper.Logger\DotNetHelper.Logger.csproj", "{9E3709CD-8CEB-4F59-A8BC-858C2C18AC1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E760373-7F79-4DB2-917D-A5A9C7B1C942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3709CD-8CEB-4F59-A8BC-858C2C18AC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3709CD-8CEB-4F59-A8BC-858C2C18AC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3709CD-8CEB-4F59-A8BC-858C2C18AC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3709CD-8CEB-4F59-A8BC-858C2C18AC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
