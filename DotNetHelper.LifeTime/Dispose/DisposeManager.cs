@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace CvsSIService.LifeTime.Bootstrap
+namespace DotNetHelper.LifeTime.Bootstrap
 {
     public class DisposeManager : IDisposeManager
     {

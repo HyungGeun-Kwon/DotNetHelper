@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CvsSIService.LifeTime.Bootstrap
+namespace DotNetHelper.LifeTime.Bootstrap
 {
     public class BootstrapManager : IBootstrapManager, IDisposable
     {

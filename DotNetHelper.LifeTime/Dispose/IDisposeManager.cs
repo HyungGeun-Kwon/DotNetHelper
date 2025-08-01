@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CvsSIService.LifeTime.Bootstrap
+namespace DotNetHelper.LifeTime.Bootstrap
 {
     public interface IDisposeManager : IDisposable
     {

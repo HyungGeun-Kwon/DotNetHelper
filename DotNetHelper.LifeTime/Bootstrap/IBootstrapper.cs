@@ -1,4 +1,4 @@
-﻿namespace CvsSIService.LifeTime.Bootstrap
+﻿namespace DotNetHelper.LifeTime.Bootstrap
 {
     public interface IBootstrapper
     {
