@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DotNetHelper.LifeTime.Bootstrap
+﻿namespace DotNetHelper.LifeTime.Bootstrap
 {
     public interface IDisposeManager : IDisposable
     {

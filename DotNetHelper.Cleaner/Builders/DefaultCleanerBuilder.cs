@@ -1,5 +1,4 @@
-﻿using System;
-using DotNetHelper.Cleaner.Interfaces;
+﻿using DotNetHelper.Cleaner.Interfaces;
 using DotNetHelper.Cleaner.Policy.Files;
 using DotNetHelper.Cleaner.Policy.Folders;
 using DotNetHelper.Cleaner.Provider;

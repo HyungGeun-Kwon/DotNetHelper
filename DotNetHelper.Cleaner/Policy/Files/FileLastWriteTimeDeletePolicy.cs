@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using DotNetHelper.Cleaner.Interfaces;
+﻿using DotNetHelper.Cleaner.Interfaces;
 
 namespace DotNetHelper.Cleaner.Policy.Files
 {

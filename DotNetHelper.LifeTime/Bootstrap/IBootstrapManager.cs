@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace DotNetHelper.LifeTime.Bootstrap
+﻿namespace DotNetHelper.LifeTime.Bootstrap
 {
     public interface IBootstrapManager
     {

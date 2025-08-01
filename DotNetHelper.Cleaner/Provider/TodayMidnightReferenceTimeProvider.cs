@@ -1,5 +1,4 @@
-﻿using System;
-using DotNetHelper.Cleaner.Interfaces;
+﻿using DotNetHelper.Cleaner.Interfaces;
 
 namespace DotNetHelper.Cleaner.Provider
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DotNetHelper.Cleaner.Interfaces
+﻿namespace DotNetHelper.Cleaner.Interfaces
 {
     public interface ICleanerBuilder
     {

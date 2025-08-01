@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using DotNetHelper.Cleaner.Interfaces;
+﻿using DotNetHelper.Cleaner.Interfaces;
 
 namespace DotNetHelper.Cleaner.Services
 {
