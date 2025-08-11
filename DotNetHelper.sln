@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.LifeTime", "Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.MVVMKit", "DotNetHelper.MVVMKit\DotNetHelper.MVVMKit.csproj", "{57192647-C130-47F2-9C7A-5769576D320A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetHelper.MsDiKit", "DotNetHelper.MsDiKit\DotNetHelper.MsDiKit.csproj", "{48F1A6DF-5DEA-4D19-B017-0A127BF9D9BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{57192647-C130-47F2-9C7A-5769576D320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57192647-C130-47F2-9C7A-5769576D320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57192647-C130-47F2-9C7A-5769576D320A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F1A6DF-5DEA-4D19-B017-0A127BF9D9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F1A6DF-5DEA-4D19-B017-0A127BF9D9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F1A6DF-5DEA-4D19-B017-0A127BF9D9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F1A6DF-5DEA-4D19-B017-0A127BF9D9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
