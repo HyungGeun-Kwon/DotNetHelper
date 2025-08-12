@@ -24,10 +24,15 @@ namespace DotNetHelper.MsDiKit.Extensions
             where TView : FrameworkElement
             where TViewModel : class, IRegionViewModel
         {
-            if (string.IsNullOrEmpty(viewName)) services.AddTransient<TView>();
+            string key = viewName;
+            if (string.IsNullOrEmpty(viewName))
+            {
+                services.AddTransient<TView>();
+                key = typeof(TView).Name;
+            }
             else services.AddKeyedTransient<TView>(viewName);
 
-            services.AddSingleton<IRegionViewDescriptor>(new RegionViewDescriptor(viewName, typeof(TView), typeof(TViewModel)));
+            services.AddSingleton<IRegionViewDescriptor>(new RegionViewDescriptor(key, typeof(TView), typeof(TViewModel)));
 
             services.AddScoped<TViewModel>();
             return services;
@@ -36,7 +41,6 @@ namespace DotNetHelper.MsDiKit.Extensions
         public static IServiceCollection AddDialogService(this IServiceCollection services)
         {
             services.TryAddSingleton<IDialogService, DialogService>();
-
 
             return services;
         }
@@ -50,10 +54,15 @@ namespace DotNetHelper.MsDiKit.Extensions
             where TView : FrameworkElement
             where TViewModel : class, IDialogViewModel
         {
-            if (string.IsNullOrEmpty(viewName)) services.AddTransient<TView>();
+            string key = viewName;
+            if (string.IsNullOrEmpty(viewName))
+            {
+                services.AddTransient<TView>();
+                key = typeof(TView).Name;
+            }
             else services.AddKeyedTransient<TView>(viewName);
 
-            services.AddSingleton<IDialogViewDescriptor>(new DialogViewDescriptor(viewName, typeof(TView), typeof(TViewModel)));
+            services.AddSingleton<IDialogViewDescriptor>(new DialogViewDescriptor(key, typeof(TView), typeof(TViewModel)));
 
             services.AddScoped<TViewModel>();
             return services;
