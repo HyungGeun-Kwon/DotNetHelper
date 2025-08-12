@@ -1,13 +1,19 @@
-﻿namespace DotNetHelper.MsDiKit.DialogServices
-{
-    public class DialogParameters
-    {
-        private readonly Dictionary<string, object> _parameters = [];
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-        public void Add(string key, object value) => _parameters[key] = value;
+namespace DotNetHelper.MsDiKit.Common
+{
+    public class Parameters
+    {
+        private readonly Dictionary<string, object?> _parameters = [];
+
+        public Parameters Add(string key, object value) { _parameters[key] = value; return this; }
         public bool ContainsKey(string key) => _parameters.ContainsKey(key);
 
-        public object this[string key] => _parameters[key];
+        public object? this[string key] => _parameters[key];
 
         public T GetValue<T>(string key)
         {
@@ -20,7 +26,7 @@
             return tValue;
         }
 
-        public object GetValue(string key)
+        public object? GetValue(string key)
         {
             if (!_parameters.TryGetValue(key, out object? value))
                 throw new KeyNotFoundException($"Parameter with key '{key}' was not found.");

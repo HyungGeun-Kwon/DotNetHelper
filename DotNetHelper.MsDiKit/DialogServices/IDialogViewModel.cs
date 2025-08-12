@@ -1,8 +1,10 @@
-﻿namespace DotNetHelper.MsDiKit.DialogServices
+﻿using DotNetHelper.MsDiKit.Common;
+
+namespace DotNetHelper.MsDiKit.DialogServices
 {
     public interface IDialogViewModel
     {
-        void OnDialogOpened(DialogParameters? parameters);
+        void OnDialogOpened(Parameters? parameters);
         void OnDialogClosed();
     }
 }
