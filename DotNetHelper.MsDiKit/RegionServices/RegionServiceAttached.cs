@@ -55,20 +55,7 @@ namespace DotNetHelper.MsDiKit.RegionServices
 
         private static void RegisterWhenLoaded(string regionName, ContentControl host)
         {
-            if (host.IsLoaded)
-            {
-                Register(regionName, host);
-            }
-            else
-            {
-                void OnHostLoaded(object _, RoutedEventArgs __)
-                {
-                    host.Loaded -= OnHostLoaded;
-                    Register(regionName, host);
-                }
-
-                host.Loaded += OnHostLoaded;
-            }
+            Register(regionName, host);
 
             // Host가 내려가면 정리
             host.Unloaded += OnHostUnloaded;
