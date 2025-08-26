@@ -119,9 +119,10 @@ namespace DotNetHelper.MsDiKit.DialogServices
                 FrameworkElement fe => new Window
                 {
                     Content = fe,
-                    Width = fe.Width > 0 ? fe.Width : 400,
-                    Height = fe.Height > 0 ? fe.Height : 300,
-                    Title = viewKey,
+                    SizeToContent = SizeToContent.WidthAndHeight,
+                    Width = fe.Width > 0 ? fe.Width : Double.NaN,
+                    Height = fe.Height > 0 ? fe.Height : Double.NaN,
+                    Title = string.IsNullOrWhiteSpace(fe.Name) ? viewKey : fe.Name,
                     WindowStartupLocation = WindowStartupLocation.CenterOwner
                 },
                 _ => throw new InvalidOperationException($"Resolved view '{viewKey}' is not a FrameworkElement. Actual: {viewObj.GetType().FullName}")
@@ -130,7 +131,14 @@ namespace DotNetHelper.MsDiKit.DialogServices
             // VM 해소 + 바인딩 (DataContext가 비어 있을 때만 적용)
             if (entry.viewModelType is not null && window.DataContext is null)
             {
-                var vm = sp.GetRequiredService(entry.viewModelType);
+                var vm =
+                    ksp?.GetKeyedService(entry.viewModelType, viewKey) ??
+                    sp.GetService(entry.viewModelType);
+
+                if (vm is null)
+                    throw new InvalidOperationException(
+                        $"ViewModel '{entry.viewModelType.FullName}' not found (keyed '{viewKey}' or unkeyed).");
+
                 window.DataContext = vm;
             }
 

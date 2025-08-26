@@ -85,10 +85,18 @@ namespace DotNetHelper.MsDiKit.RegionServices
 
                 // Host 상태 먼저 확인(없거나 아직 로드 안 됐으면 그냥 종료)
                 var host = regionHost.Host;
-                if (host is null || !host.IsLoaded)
+                if (host is null)
                     return;
 
-                var newScope = _rootSp.CreateScope();
+                if (!host.IsLoaded)
+                {
+                    RoutedEventHandler? h = null;
+                    h = (_, __) => { host.Loaded -= h; SetView(regionName, viewKey, parameters); };
+                    host.Loaded += h;
+                    return;
+                }
+
+                IServiceScope? newScope = _rootSp.CreateScope();
                 try
                 {
                     var sp = newScope.ServiceProvider;
@@ -120,6 +128,7 @@ namespace DotNetHelper.MsDiKit.RegionServices
                     host.Content = fe;
                     regionHost.CurrentView = fe;
                     regionHost.Scope = newScope; // 소유권 이전
+                    newScope = null;
 
                     (fe.DataContext as IRegionViewModel)?.OnRegionActivated(parameters);
                 }
