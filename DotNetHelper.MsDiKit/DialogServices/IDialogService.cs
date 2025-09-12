@@ -18,7 +18,7 @@ namespace DotNetHelper.MsDiKit.DialogServices
         bool TryRemoveDialog(string viewKey);
         bool TryRemoveDialog<TView>() where TView : FrameworkElement;
 
-        void Show(string viewKey, Parameters? parameters = null, Action? closedCallback = null);
-        bool? ShowDialog(string viewKey, Parameters? parameters = null, Action? closedCallback = null);
+        void Show(string viewKey, Parameters? parameters = null, Action<IDialogResult?>? closedCallback = null);
+        bool? ShowDialog(string viewKey, Parameters? parameters = null, Action<IDialogResult?>? closedCallback = null);
     }
 }

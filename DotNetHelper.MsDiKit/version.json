@@ -1,6 +1,6 @@
 {
-  "version": "1.2", // Major.Minor 기준선
-  "assemblyVersion": "1.2",
+  "version": "1.4", // Major.Minor 기준선
+  "assemblyVersion": "1.4",
   "tagPrefix": "DotNetHelper.MsDiKit-v", // 자동 태그 이름 접두사
   "publicReleaseRefSpec": [
     "^refs/heads/main$",

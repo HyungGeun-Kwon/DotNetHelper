@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Data.Common;
 using System.Windows;
 using DotNetHelper.MsDiKit.Common;
 using DotNetHelper.MsDiKit.RegionServices;
@@ -56,7 +57,7 @@ namespace DotNetHelper.MsDiKit.DialogServices
         private string GetViewKey<TView>(string viewKey) => string.IsNullOrEmpty(viewKey) ? typeof(TView).Name : viewKey;
 
 
-        public void Show(string viewKey, Parameters? parameters = null, Action? closedCallback = null)
+        public void Show(string viewKey, Parameters? parameters = null, Action<IDialogResult?>? closedCallback = null)
         {
             RunOnUiThread(() =>
             {
@@ -75,7 +76,7 @@ namespace DotNetHelper.MsDiKit.DialogServices
                 }
             });
         }
-        public bool? ShowDialog(string viewKey, Parameters? parameters = null, Action? closedCallback = null)
+        public bool? ShowDialog(string viewKey, Parameters? parameters = null, Action<IDialogResult?>? closedCallback = null)
         {
             bool? result = null;
             RunOnUiThread(() =>
@@ -144,13 +145,43 @@ namespace DotNetHelper.MsDiKit.DialogServices
 
             return window;
         }
-        private static void AttachLifecycle(Window window, IServiceScope scope, Parameters? parameters, Action? closedCallback)
+        private static void AttachLifecycle(Window window, IServiceScope scope, Parameters? parameters, Action<IDialogResult?>? closedCallback)
         {
+            bool _closedOnce = false;
+            IDialogResult? _lastResult = null;
+
+            void TryFireClosedOnce()
+            {
+                if (_closedOnce) return;
+                _closedOnce = true;
+                try
+                {
+                    var result = _lastResult ?? new DialogResult(ButtonResult.None, null);
+                    closedCallback?.Invoke(result);
+                }
+                finally { try { scope.Dispose(); } catch { } }
+            }
+
             void LoadedHandler(object? _, EventArgs __)
             {
                 window.Loaded -= LoadedHandler;
                 if (window.DataContext is IDialogViewModel dvm)
+                {
                     dvm.OnDialogOpened(parameters);
+                    dvm.RequestClose += Vm_RequestClose;
+                }
+            }
+
+            void Vm_RequestClose(IDialogResult result)
+            {
+                if (_closedOnce) return;
+
+                _lastResult = result;
+
+                if (window.DataContext is IDialogViewModel dvm)
+                    dvm.RequestClose -= Vm_RequestClose;
+
+                if (window.IsVisible) window.Close();
             }
 
             void ClosedHandler(object? s, EventArgs e)
@@ -159,13 +190,12 @@ namespace DotNetHelper.MsDiKit.DialogServices
                 try
                 {
                     if (window.DataContext is IDialogViewModel dvm2)
+                    {
+                        dvm2.RequestClose -= Vm_RequestClose;
                         dvm2.OnDialogClosed();
+                    }
                 }
-                finally
-                {
-                    try { scope.Dispose(); } catch { }
-                    closedCallback?.Invoke();
-                }
+                finally { TryFireClosedOnce(); }
             }
 
             window.Loaded += LoadedHandler;
